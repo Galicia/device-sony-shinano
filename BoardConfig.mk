@@ -68,6 +68,8 @@ BOARD_USES_ALSA_AUDIO := true
 
 TARGET_USES_ION := true
 USE_DEVICE_SPECIFIC_CAMERA := true
+# Qcom
+USE_DEVICE_SPECIFIC_QCOM_PROPRIETARY:= true
 
 # Wi-Fi definitions for Broadcom solution
 BOARD_WLAN_DEVICE           := bcmdhd
