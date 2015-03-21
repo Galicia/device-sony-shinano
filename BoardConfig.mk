@@ -27,21 +27,26 @@ TARGET_NO_RADIOIMAGE := true
 TARGET_NO_RECOVERY := false
 TARGET_NO_KERNEL := false
 
+TARGET_NO_BOOTLOADER := true
+
 BOARD_KERNEL_BASE        := 0x00000000
 BOARD_KERNEL_PAGESIZE    := 2048
 BOARD_KERNEL_TAGS_OFFSET := 0x01E00000
 BOARD_RAMDISK_OFFSET     := 0x02000000
 
-BOARD_KERNEL_BOOTIMG := true
+# Test Sony mkqcdtbootimg
+#BOARD_KERNEL_BOOTIMG := true
 #BOARD_CUSTOM_MKBOOTIMG := mkqcdtbootimg
 #BOARD_MKBOOTIMG_ARGS := --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
 #BOARD_MKBOOTIMG_ARGS += --dt_dir $(OUT)/dtbs
+
+# Test dtbTool and custombootimg.mk
 TARGET_NO_SEPARATE_RECOVERY := true
 BOARD_CUSTOM_BOOTIMG := true
+BOARD_CUSTOM_BOOTIMG_MK := device/sony/shinano/boot/custombootimg.mk
 BOARD_KERNEL_SEPARATED_DT := true
 TARGET_DTB_EXTRA_FLAGS := --force-v2
-BOARD_CUSTOM_BOOTIMG_MK := device/sony/shinano/boot/custombootimg.mk
-BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000 --tags_offset 0x01E00000
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
 
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=shinano user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 selinux=0
 BOARD_KERNEL_CMDLINE += dwc3.maximum_speed=high dwc3_msm.prop_chg_detect=Y
