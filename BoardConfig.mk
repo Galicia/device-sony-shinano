@@ -16,7 +16,8 @@ PRODUCT_VENDOR_KERNEL_HEADERS := device/sony/shinano/kernel-headers
 
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
-TARGET_BOARD_PLATFORM = msm8974
+TARGET_BOARD_PLATFORM := msm8974
+#TARGET_BOARD_PLATFORM_GPU := qcom-adreno330
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_VARIANT := krait
@@ -68,8 +69,14 @@ BOARD_USES_ALSA_AUDIO := true
 
 TARGET_USES_ION := true
 USE_DEVICE_SPECIFIC_CAMERA := true
-# Qcom
+
+# Qualcomm support
 USE_DEVICE_SPECIFIC_QCOM_PROPRIETARY:= true
+# Also?
+BOARD_USES_QCOM_HARDWARE := true
+#COMMON_GLOBAL_CFLAGS += -DQCOM_BSP
+#COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
+#TARGET_USES_QCOM_BSP := true
 
 # Wi-Fi definitions for Broadcom solution
 BOARD_WLAN_DEVICE           := bcmdhd
