@@ -146,6 +146,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     p2p_supplicant.conf \
     gsm_domains.conf \
+    dhcpcd.conf \
     hostapd \
     libwpa_client \
     wpa_supplicant \
