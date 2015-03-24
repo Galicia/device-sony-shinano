@@ -35,13 +35,8 @@ BOARD_KERNEL_PAGESIZE    := 2048
 BOARD_KERNEL_TAGS_OFFSET := 0x01E00000
 BOARD_RAMDISK_OFFSET     := 0x02000000
 
-# Test Sony mkqcdtbootimg
-#BOARD_KERNEL_BOOTIMG := true
-#BOARD_CUSTOM_MKBOOTIMG := mkqcdtbootimg
-#BOARD_MKBOOTIMG_ARGS := --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
-#BOARD_MKBOOTIMG_ARGS += --dt_dir $(OUT)/dtbs
-
 # Test dtbTool and custombootimg.mk
+BOARD_KERNEL_BOOTIMG := true
 TARGET_NO_SEPARATE_RECOVERY := true
 BOARD_CUSTOM_BOOTIMG := true
 BOARD_CUSTOM_BOOTIMG_MK := device/sony/shinano/boot/custombootimg.mk
@@ -69,14 +64,6 @@ BOARD_USES_ALSA_AUDIO := true
 
 TARGET_USES_ION := true
 USE_DEVICE_SPECIFIC_CAMERA := true
-
-# Qualcomm support
-USE_DEVICE_SPECIFIC_QCOM_PROPRIETARY:= true
-# Also?
-BOARD_USES_QCOM_HARDWARE := true
-#COMMON_GLOBAL_CFLAGS += -DQCOM_BSP
-#COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
-#TARGET_USES_QCOM_BSP := true
 
 # Wi-Fi definitions for Broadcom solution
 BOARD_WLAN_DEVICE           := bcmdhd
@@ -115,3 +102,6 @@ WITH_DEXPREOPT := true
 
 # Recovery
 TARGET_RECOVERY_FSTAB := device/sony/shinano/rootdir/fstab.shinano
+
+# TWRP flags
+DEVICE_RESOLUTION := 720x1280
