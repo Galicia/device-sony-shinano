@@ -50,8 +50,10 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2671771648
 BOARD_CACHEIMAGE_PARTITION_SIZE := 209715200
 BOARD_FLASH_BLOCK_SIZE := 131072 # (BOARD_KERNEL_PAGESIZE * 64)
 
+# Recovery
+TARGET_RECOVERY_FSTAB = device/sony/shinano/rootdir/fstab.shinano
+
 USE_OPENGL_RENDERER := true
-TARGET_USES_C2D_COMPOSITION := true
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
 MAX_EGL_CACHE_SIZE := 2048*1024
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
@@ -103,10 +105,6 @@ WITH_DEXPREOPT := true
 
 BUILD_KERNEL := true
 -include vendor/sony/kernel/KernelConfig.mk
-
-# Recovery
-TARGET_RECOVERY_FSTAB := device/sony/shinano/rootdir/fstab.shinano
-TARGET_RECOVERY_PIXEL_FORMAT := "RGB_565"
 
 # TWRP flags
 TW_THEME := portrait_hdpi
